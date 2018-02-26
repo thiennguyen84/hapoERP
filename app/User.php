@@ -16,8 +16,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $datas = [
-        'delete_at',
+    protected $dates = [
+        'deleted_at',
         'birthday',
     ];
     protected $fillable = [
@@ -37,26 +37,26 @@ class User extends Authenticatable
     ];
 
     public function attendsions(){
-        return $this->hasMany('App\Attendsion','user_id','id');
+        return $this->hasMany(Attendsion::class);
     }
 
     public function vacationFullTimes(){
-        return $this->hasMany('App\VacationFullTime','user_id','id');
+        return $this->hasMany(VacationFullTime::class);
     }
 
     public function vacationPartTimes(){
-        return $this->hasMany('App\VacationPartTime','user_id','id');
+        return $this->hasMany(VacationPartTime::class);
     }
 
     public function reports(){
-        return $this->hasMany('App\Report','user_id','id');
+        return $this->hasMany(Report::class);
     }
 
     public function overTimes(){
-        return $this->hasMany('App\Overtime','user_id','id');
+        return $this->hasMany(Overtime::class);
     }
 
     public function salarys(){
-        return $this->hasMany('App\Salary','user_id','id');
+        return $this->hasMany(Salary::class);
     }      
 }

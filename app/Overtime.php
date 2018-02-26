@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Overtime extends Model
 {
 	use softDeletes;
-	protected $datas = ['delete_at'];
+	protected $dates = ['deleted_at'];
     protected $table = 'overtimes';
 
     public function user(){
-    	return $this->belongsTo('App\User','user_id','id');
+    	return $this->belongsTo(User::class);
     }
 
     public function salary(){
-    	return $this->belongsTo('App\Salary','overtime_id','id');
+    	return $this->belongsTo(Salary::class);
     }
 }

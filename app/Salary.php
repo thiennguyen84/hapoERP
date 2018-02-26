@@ -8,22 +8,22 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Salary extends Model
 {
     use softDeletes;
-	protected $datas = ['delete_at'];
+	protected $dates = ['deleted_at'];
     protected $table = 'salarys';
 
     public function user(){
-    	return $this->belongsTo('App\User','user_id','id');
+    	return $this->belongsTo(User::class);
     }
 
-    public function overtimes(){
-    	return $this->hasMany('App\Overtime','overtime_id','id');
+    public function overTimes(){
+    	return $this->hasMany(Overtime::class);
     }
 
     public function vacationPartTimes(){
-    	return $this->hasMany('App\VacationPartTime','vacation_partime_id','id');
+    	return $this->hasMany(VacationPartTime::class);
     }
 
     public function attendsions(){
-    	return $this->hasMany('App\Attendsion','attendsion_id','id');
+    	return $this->hasMany(Attendsion::class);
     }
 }

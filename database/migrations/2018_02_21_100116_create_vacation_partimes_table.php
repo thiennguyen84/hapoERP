@@ -16,8 +16,8 @@ class CreateVacationPartimesTable extends Migration
         Schema::create('vacation_partimes', function (Blueprint $table) {
             $table->increments('id');
             $table->text('reason');
-            $table->dateTime('from');
-            $table->dateTime('to');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->softDeletes();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

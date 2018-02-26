@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Attendsion extends Model
 {
 	use softDeletes;
-	protected $datas = ['delete_at']; 
+	protected $dates = ['deleted_at']; 
     protected $table = 'attendsions';
 
     public function user(){
-    	return $this->belongsToMany('App\User','user_id','id');
+    	return $this->belongsToMany(User::class);
     }
 
     public function salarys(){
-    	return $this->belongsMany('App\Salary','attendsion_id','id');
+    	return $this->belongsMany(Salary::class);
     }
 }
