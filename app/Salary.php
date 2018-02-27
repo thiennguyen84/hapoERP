@@ -15,15 +15,4 @@ class Salary extends Model
     	return $this->belongsTo(User::class);
     }
 
-    public function overTimes(){
-    	return $this->hasMany(Overtime::class);
-    }
-
-    public function vacationPartTimes(){
-    	return $this->hasMany(VacationPartTime::class);
-    }
-
-    public function attendsions(){
-    	return $this->hasMany(Attendsion::class);
-    }
 }

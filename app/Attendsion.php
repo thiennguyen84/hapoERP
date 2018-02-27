@@ -15,7 +15,4 @@ class Attendsion extends Model
     	return $this->belongsToMany(User::class);
     }
 
-    public function salarys(){
-    	return $this->belongsMany(Salary::class);
-    }
 }

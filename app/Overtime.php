@@ -15,7 +15,4 @@ class Overtime extends Model
     	return $this->belongsTo(User::class);
     }
 
-    public function salary(){
-    	return $this->belongsTo(Salary::class);
-    }
 }

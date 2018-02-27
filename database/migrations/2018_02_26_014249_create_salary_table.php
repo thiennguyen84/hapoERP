@@ -17,16 +17,11 @@ class CreateSalaryTable extends Migration
             $table->increments('id');
             $table->float('basic_salary');
             $table->float('overtime_salary');
+            $table->float('insurance_money');
+            $table->float('insurance_payment');
             $table->float('real_salary');
-            $table->float('total_salary');
             $table->integer('user_id')->unsigned();
-            $table->integer('attendsion_id')->unsigned();
-            $table->integer('overtime_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('vacation_partime_id')->unsigned();
-            $table->foreign('attendsion_id')->references('id')->on('attendsions');
-            $table->foreign('overtime_id')->references('id')->on('overtimes');
-            $table->foreign('vacation_partime_id')->references('id')->on('vacation_partimes');
             $table->softDeletes();
             $table->timestamps();
         });
