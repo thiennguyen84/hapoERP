@@ -16,7 +16,7 @@ class CreateAttendsionsTable extends Migration
         Schema::create('attendsions', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-            $table->softDeletes();
+            $table->SoftDeletes();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

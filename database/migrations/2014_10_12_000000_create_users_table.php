@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('sex')->nullable();
             $table->string('level_japanese')->nullable();
             $table->boolean('duty')->nullable();
-            $table->softDeletes();
+            $table->SoftDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

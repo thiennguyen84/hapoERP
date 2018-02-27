@@ -19,7 +19,7 @@ class CreateOvertimesTable extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->time('hours');
-            $table->softDeletes();
+            $table->SoftDeletes();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
