@@ -11,7 +11,7 @@ class Attention extends Model
 	protected $dates = ['deleted_at']; 
 
     public function user() {
-    	return $this->belongsToMany(User::class);
+    	return $this->belongsTo(User::class);
     }
 
 }
