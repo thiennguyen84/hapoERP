@@ -24,6 +24,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'birthday',
+        'avatar',
+        'sex',
+        'level_japanese',
     ];
 
     /**
@@ -36,8 +41,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function attendsions() {
-        return $this->hasMany(Attendsion::class);
+    public function attentions() {
+        return $this->hasMany(Attention::class);
     }
 
     public function vacationFullTimes() {

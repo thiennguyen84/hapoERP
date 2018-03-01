@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttendsionsTable extends Migration
+class CreateAttentionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAttendsionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendsions', function (Blueprint $table) {
+        Schema::create('attentions', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
             $table->SoftDeletes();
@@ -29,6 +29,6 @@ class CreateAttendsionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendsions');
+        Schema::dropIfExists('attentions');
     }
 }
