@@ -1,17 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class VacationFullTime extends Model
+class Report extends Model
 {
 	use SoftDeletes;
 	protected $dates = ['deleted_at'];
-    protected $table = 'vacation_fulltimes';
 
-    public function user(){
+    public function user() {
     	return $this->belongsTo(User::class);
     }
 }

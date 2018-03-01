@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,9 +9,8 @@ class Attendsion extends Model
 {
 	use SoftDeletes;
 	protected $dates = ['deleted_at']; 
-    protected $table = 'attendsions';
 
-    public function user(){
+    public function user() {
     	return $this->belongsToMany(User::class);
     }
 

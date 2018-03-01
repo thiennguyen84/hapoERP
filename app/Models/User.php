@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -36,27 +36,27 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function attendsions(){
+    public function attendsions() {
         return $this->hasMany(Attendsion::class);
     }
 
-    public function vacationFullTimes(){
+    public function vacationFullTimes() {
         return $this->hasMany(VacationFullTime::class);
     }
 
-    public function vacationPartTimes(){
+    public function vacationPartTimes() {
         return $this->hasMany(VacationPartTime::class);
     }
 
-    public function reports(){
+    public function reports() {
         return $this->hasMany(Report::class);
     }
 
-    public function overTimes(){
+    public function overTimes() {
         return $this->hasMany(Overtime::class);
     }
 
-    public function salarys(){
+    public function salarys() {
         return $this->hasMany(Salary::class);
     }      
 }

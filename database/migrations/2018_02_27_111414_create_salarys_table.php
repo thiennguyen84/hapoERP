@@ -20,8 +20,7 @@ class CreateSalarysTable extends Migration
             $table->float('insurance_money');
             $table->float('insurance_payment');
             $table->float('real_salary');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id');
             $table->softDeletes();
             $table->timestamps();
         });

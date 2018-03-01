@@ -16,12 +16,11 @@ class CreateOvertimesTable extends Migration
         Schema::create('overtimes', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-            $table->time('start_time');
-            $table->time('end_time');
-            $table->time('hours');
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->string('hours');
             $table->SoftDeletes();
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

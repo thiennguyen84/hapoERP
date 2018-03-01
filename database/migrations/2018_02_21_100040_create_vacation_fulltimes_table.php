@@ -18,8 +18,7 @@ class CreateVacationFulltimesTable extends Migration
             $table->date('date');
             $table->text('reason');
             $table->SoftDeletes();
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
