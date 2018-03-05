@@ -15,6 +15,7 @@ class CreateVacationParttimesTable extends Migration
     {
         Schema::create('vacation_parttimes', function (Blueprint $table) {
             $table->increments('id');
+            $table->date('date');
             $table->text('reason');
             $table->time('start_time');
             $table->time('end_time');
