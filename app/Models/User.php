@@ -57,11 +57,11 @@ class User extends Authenticatable
         return $this->hasMany(Report::class);
     }
 
-    public function overTimes() {
+    public function overTime() {
         return $this->hasMany(Overtime::class);
     }
 
-    public function salarys() {
+    public function salaries() {
         return $this->hasMany(Salary::class);
     }      
 }
