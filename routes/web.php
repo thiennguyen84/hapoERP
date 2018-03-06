@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
+    Route::get('logout',function(){
+        Auth::logout();
+        return redirect(url('login'));
+    });
+
+    Route::resource('vacationfulltime', 'User\VacationFulltimeController',['except' =>['show']]
+	);
+
+	Route::resource('vacationparttime', 'User\VacationParttimeController', ['except' =>['show']]);
+});

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class VacationPartTime extends Model
+class VacationParttime extends Model
 {
 	use SoftDeletes;
 	protected $dates = ['deleted_at'];
