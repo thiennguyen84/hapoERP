@@ -16,8 +16,7 @@
                     <th>Total hours</th>
                     <th>Content</th>
                 </thead>
-                
-                
+                 
                 <tbody>
                     @php 
                         $stt=1;
@@ -48,9 +47,9 @@
                     	<tr>
                         	<th>Tổng số giờ OT</th>
                         	<th></th>
-                        	<th>{{ $sum_overtime }} hour</th>
+                        	<th>{{ $sumOvertime }} hour</th>
                         	<th></th>
-                        	<th>	</th>
+                        	<th></th>
                         </tr>
                        
                 </tbody>

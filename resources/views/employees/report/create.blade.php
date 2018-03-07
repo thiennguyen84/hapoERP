@@ -20,14 +20,14 @@
 			<div class="row">	
 				<p class="col-md-2">Today</p>
 				<p class="col-md-10">
-					<textarea rows="4" cols="50" name="today_content" placeholder="Hôm nay bạn làm những gì?" class="form-control" required="required"></textarea>
+					<textarea rows="4" cols="50" name="todayContent" placeholder="Hôm nay bạn làm những gì?" class="form-control" required="required"></textarea>
 				</p>
 			</div>
 			
 			<div class="row">
 				<p class="col-md-2">Tomorrow</p>
 				<p class="col-md-10">
-					<textarea rows="4" cols="50" name="tomorrow_content" placeholder="Ngày mai bạn định làm gì?" class="form-control" required="required"></textarea>
+					<textarea rows="4" cols="50" name="tomorrowContent" placeholder="Ngày mai bạn định làm gì?" class="form-control" required="required"></textarea>
 				</p>
 			</div>
 

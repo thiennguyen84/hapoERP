@@ -26,8 +26,8 @@ class ReportController extends Controller
     {
         $report = new Report();
         $report->date = $request->date;
-        $report->today_content = $request->today_content;
-        $report->tomorrow_content = $request->tomorrow_content;
+        $report->today_content = $request->todayContent;
+        $report->tomorrow_content = $request->tomorrowContent;
         $report->problem = $request->problem;
         $report->user_id = Auth::user()->id;
         
@@ -51,8 +51,8 @@ class ReportController extends Controller
     public function update(Request $request, $id)
     {
         $report = Report::findOrFail($id);
-        $report->today_content = $request->today_content;
-        $report->tomorrow_content = $request->tomorrow_content;
+        $report->today_content = $request->todayContent;
+        $report->tomorrow_content = $request->tomorrowContent;
         $report->problem = $request->problem;
         $report->save();
         $request->session()->flash('success', trans('message.edit_success'));

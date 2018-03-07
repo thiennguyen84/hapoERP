@@ -27,11 +27,11 @@ class AttendsionController extends Controller
         $attendsion = new Attention();
         $attendsion->date = date('Y-m-d H:i:s');
         $attendsion->user_id = Auth::user()->id;
-        $date_time= Attention::where('user_id',Auth::user()->id)->orderBy('date','desc')->value('date');
+        $dateTime = Attention::where('user_id',Auth::user()->id)->orderBy('date','desc')->value('date');
         // cut element
-        $date_time_day= substr( $date_time ,0 ,10);
-        $date= substr($attendsion->date,0 ,10);
-        if(!($date === $date_time_day)) {
+        $dateTimeDay = substr( $dateTime ,0 ,10);
+        $date = substr($attendsion->date,0 ,10);
+        if(!($date === $dateTimeDay)) {
         $attendsion->save();
         session()->flash('success',trans('message.attendtion_success'));
         return redirect()->route('attendsion.index'); 
@@ -43,12 +43,12 @@ class AttendsionController extends Controller
 
      public function statistic()
     {
-        $date_time= Attention::where('user_id',Auth::user()->id)->orderBy('date','desc')->value('date');
+        $dateTime = Attention::where('user_id',Auth::user()->id)->orderBy('date','desc')->value('date');
         // cut element
-        $date_time_day= substr( $date_time ,0 ,7);
-        $counts_attendsion = Attention::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $date_time_day ."%")->count();
-        $attendsion = Attention::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $date_time_day ."%")->paginate(config('app.pagination'));
-        return view("employees.attendsion.statistic",['attendsion' => $attendsion, 'counts_attendsion' => $counts_attendsion]);
+        $dateTimeDay = substr( $dateTime ,0 ,7);
+        $countAttendsion = Attention::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $dateTimeDay ."%")->count();
+        $attendsion = Attention::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $dateTimeDay ."%")->paginate(config('app.pagination'));
+        return view("employees.attendsion.statistic",['attendsion' => $attendsion, 'countAttendsion' => $countAttendsion]);
     }
 
     /**

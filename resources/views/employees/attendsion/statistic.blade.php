@@ -15,11 +15,9 @@
                     <th>Ngày giờ điểm danh</th>
                 </thead>
                 
-                
                 <tbody>
                     @php 
                         $stt=1;
-                        $dem=1;
                     @endphp
                     @foreach ($attendsion as $rows)
                         <tr>
@@ -35,7 +33,7 @@
                     @endforeach
                      	<tr>
                         	<th>Tổng số ngày điểm danh</th>
-                        	<th>{{ $counts_attendsion }}</th>
+                        	<th>{{ $countAttendsion }}</th>
                         </tr>
                        
                 </tbody>
