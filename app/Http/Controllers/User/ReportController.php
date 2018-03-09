@@ -13,8 +13,8 @@ class ReportController extends Controller
     
     public function index()
     {
-        $report = Report::where('user_id',Auth::user()->id)->paginate(config('app.pagination'));
-        return view("employees.report.index",['report' => $report]);
+        $report = Report::where('user_id', Auth::user()->id)->paginate(config('app.pagination'));
+        return view("employees.report.index", ['report' => $report]);
     }
 
     public function create()
@@ -32,20 +32,20 @@ class ReportController extends Controller
         $report->user_id = Auth::user()->id;
         
         $report->save();
-        $request->session()->flash('success',trans('message.add_success'));
+        $request->session()->flash('success', trans('message.add_success'));
         return redirect()->route('report.index');  
     }
 
     public function show($id)
     {
         $report = Report::findOrFail($id);
-        return view("employees.report.show",['report' => $report]);
+        return view("employees.report.show", ['report' => $report]);
     }
 
     public function edit($id)
     {
         $report = Report::findOrFail($id);
-        return view("employees.report.edit",['report' => $report]);
+        return view("employees.report.edit", ['report' => $report]);
     }
 
     public function update(Request $request, $id)

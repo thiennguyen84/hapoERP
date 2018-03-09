@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 
@@ -8,7 +8,7 @@
             <h3 class="text-center">THỐNG KÊ THÁNG @php echo date('m/Y') @endphp</h3>
         </div>
         <div class="panel-body">
-            <table class="table table-striped task-table table-hover">
+            <table class="table table-responsive table-striped task-table table-hover">
        
                 <thead>
                     <th>STT</th>
@@ -33,7 +33,7 @@
                     @endforeach
                      	<tr>
                         	<th>Tổng số ngày điểm danh</th>
-                        	<th>{{ $countAttendsion }}</th>
+                        	<th>{{ $stt - 1 }}</th>
                         </tr>
                        
                 </tbody>

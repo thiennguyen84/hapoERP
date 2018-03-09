@@ -18,8 +18,8 @@ class AttendsionController extends Controller
      */
     public function index()
     {
-        $attendsion = Attention::where('user_id',Auth::user()->id)->paginate(config('app.pagination'));
-        return view("employees.attendsion.index",['attendsion' => $attendsion]);
+        $attendsion = Attention::where('user_id', Auth::user()->id)->paginate(config('app.pagination'));
+        return view("employees.attendsion.index", ['attendsion' => $attendsion]);
     }
 
     public function create()
@@ -27,28 +27,27 @@ class AttendsionController extends Controller
         $attendsion = new Attention();
         $attendsion->date = date('Y-m-d H:i:s');
         $attendsion->user_id = Auth::user()->id;
-        $dateTime = Attention::where('user_id',Auth::user()->id)->orderBy('date','desc')->value('date');
+        $dateTime = Attention::where('user_id', Auth::user()->id)->orderBy('date','desc')->value('date');
         // cut element
-        $dateTimeDay = substr( $dateTime ,0 ,10);
-        $date = substr($attendsion->date,0 ,10);
+        $dateTimeDay = substr( $dateTime , 0, 10);
+        $date = substr($attendsion->date, 0, 10);
         if(!($date === $dateTimeDay)) {
         $attendsion->save();
-        session()->flash('success',trans('message.attendtion_success'));
+        session()->flash('success', trans('message.attendtion_success'));
         return redirect()->route('attendsion.index'); 
         }
         else 
-        session()->flash('success',trans('message.attendtion_fail'));
+        session()->flash('success', trans('message.attendtion_fail'));
         return redirect()->route('attendsion.index'); 
     }
 
      public function statistic()
     {
-        $dateTime = Attention::where('user_id',Auth::user()->id)->orderBy('date','desc')->value('date');
+        $dateTime = Attention::where('user_id', Auth::user()->id)->orderBy('date', 'desc')->value('date');
         // cut element
         $dateTimeDay = substr( $dateTime ,0 ,7);
-        $countAttendsion = Attention::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $dateTimeDay ."%")->count();
-        $attendsion = Attention::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $dateTimeDay ."%")->paginate(config('app.pagination'));
-        return view("employees.attendsion.statistic",['attendsion' => $attendsion, 'countAttendsion' => $countAttendsion]);
+        $attendsion = Attention::where('user_id',Auth::user()->id)->where('date', "LIKE", "%". $dateTimeDay ."%")->paginate(config('app.pagination'));
+        return view("employees.attendsion.statistic", ['attendsion' => $attendsion]);
     }
 
     /**

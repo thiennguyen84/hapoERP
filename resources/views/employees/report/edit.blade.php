@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 @section('title')
 <title>Thay đổi thông tin</title>
 @endsession
@@ -11,11 +11,19 @@
 		<form method="POST" action="{{ route('report.update',$report->id) }}" enctype="multipart/form-data">
 			 {{ csrf_field() }}
 			 {{ method_field('PUT') }}
+			 <!-- rows -->
+			<div class="row">	
+				<p class="col-md-2">Date</p>
+				<p class="col-md-10">
+					<input type="date" name="date" class="form-control" value="{{ $report->date }}">{{ $report->date }}</input>
+				</p>
+			</div>
+			<!-- end rows -->
 			<!-- rows -->
 			<div class="row">	
 				<p class="col-md-2">Today</p>
 				<p class="col-md-10">
-					<textarea rows="4" cols="50" name="today_content" class="form-control">{{ $report->today_content }}</textarea>
+					<textarea rows="4" cols="50" name="todayContent" class="form-control">{{ $report->today_content }}</textarea>
 				</p>
 			</div>
 			<!-- end rows -->
@@ -23,7 +31,7 @@
 			<div class="row">	
 				<p class="col-md-2">Tomorrow</p>
 				<p class="col-md-10">
-					<textarea rows="4" cols="50" name="tomorrow_content" class="form-control">{{ $report->tomorrow_content }}</textarea>
+					<textarea rows="4" cols="50" name="tomorrowContent" class="form-control">{{ $report->tomorrow_content }}</textarea>
 				</p>
 			</div>
 			<!-- end rows -->

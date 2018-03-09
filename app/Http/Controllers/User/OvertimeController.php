@@ -12,8 +12,8 @@ class OvertimeController extends Controller
 {
     public function index()
     {
-        $overtime = Overtime::where('user_id',Auth::user()->id)->paginate(config('app.pagination'));
-        return view("employees.overtime.index",['overtime' => $overtime]);
+        $overtime = Overtime::where('user_id', Auth::user()->id)->paginate(config('app.pagination'));
+        return view("employees.overtime.index", ['overtime' => $overtime]);
     }
 
     public function create()
@@ -28,7 +28,7 @@ class OvertimeController extends Controller
         $overtime->start_time = $request->from;
         $overtime->end_time = $request->to;
         $overtime->content = $request->content;
-        // trả ra tổng số giờ OT
+        // count hours OT
         $toTime = strtotime($overtime->end_time);
         $fromTime = strtotime($overtime->start_time);
         $hour = ceil($toTime - $fromTime)/(60*60);
@@ -59,7 +59,7 @@ class OvertimeController extends Controller
         $overtime->start_time = $request->from;
         $overtime->end_time = $request->to;
         $overtime->content = $request->content;
-        // trả ra số giờ OT
+        // count hours OT
         $toTime = strtotime($overtime->end_time);
         $fromTime = strtotime($overtime->start_time);
         $hour = ceil($toTime - $fromTime)/(60*60);
@@ -79,10 +79,10 @@ class OvertimeController extends Controller
 
      public function statistic()
     {
-        $dateTime = Overtime::where('user_id',Auth::user()->id)->orderBy('date','desc')->value('date');
-        $dateTimeDay = substr( $dateTime ,0 ,7);
-        $sumOvertime = Overtime::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $dateTimeDay ."%")->sum('hours');
-        $overtime = Overtime::where('user_id',Auth::user()->id)->where('date',"LIKE", "%". $dateTimeDay ."%")->paginate(config('app.pagination'));
+        $dateTime = Overtime::where('user_id', Auth::user()->id)->orderBy('date', 'desc')->value('date');
+        $dateTimeDay = substr( $dateTime , 0, 7);
+        $sumOvertime = Overtime::where('user_id', Auth::user()->id)->where('date', "LIKE", "%". $dateTimeDay ."%")->sum('hours');
+        $overtime = Overtime::where('user_id', Auth::user()->id)->where('date', "LIKE", "%". $dateTimeDay ."%")->paginate(config('app.pagination'));
         return view("employees.overtime.statistic",['overtime' => $overtime, 'sumOvertime' => $sumOvertime]);
     }
 

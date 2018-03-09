@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 
@@ -11,7 +11,7 @@
             <h3 class="text-center">TimeSheet</h3>
         </div>
         <div class="panel-body">
-            <table class="table table-striped task-table table-hover">
+            <table class="table table-striped table-responsive task-table table-hover">
        
                 <thead>
                     <th>STT</th>

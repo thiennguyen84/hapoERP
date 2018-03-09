@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 
@@ -9,7 +9,7 @@
             {{ method_field('GET') }}
             <h3 class="text-center">TimeSheet</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body table-responsive">
             <table class="table table-striped task-table table-hover">
        
                 <thead>
@@ -35,13 +35,13 @@
                                 <div>{{ (new \Carbon\Carbon($rows->date))->format('d/m/Y') }}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{ str_limit($rows->today_content, 100) }}</div>
+                                <div>{{ str_limit($rows->today_content, 80) }}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{ str_limit($rows->tomorrow_content, 100) }}</div>
+                                <div>{{ str_limit($rows->tomorrow_content, 80) }}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{ str_limit($rows->problem, 100) }}</div>
+                                <div>{{ str_limit($rows->problem, 80) }}</div>
                             </td>
 
                             <td>

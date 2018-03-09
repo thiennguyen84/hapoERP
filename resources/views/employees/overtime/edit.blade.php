@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 @section('title')
 <title>Thay đổi thông tin</title>
 @endsection
