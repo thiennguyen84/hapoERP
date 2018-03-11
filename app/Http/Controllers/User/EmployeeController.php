@@ -32,7 +32,13 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee.user.add');
+        if(Auth::user()->level_employee == 'employee'){
+            return redirect()->back()->with('success',trans('message.add_fail'));
+        }
+        else
+        {
+            return view('employee.user.add');
+        }
     }
 
     /**
@@ -74,7 +80,12 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = User::findOrFail($id);
-        return view('employee.user.edit',['employee'=>$employee]);
+        if(Auth::user()->id != $employee->id){
+            return redirect()->back()->with('success',trans('message.edit_fail'));
+        }
+        else{
+            return view('employee.user.edit',['employee'=>$employee]);
+        }
     }
 
     /**
@@ -112,9 +123,15 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         $employee = User::findOrFail($id);
-        $file= $employee->image;
-        File::delete('img/'.$file);
-        $employee->delete();
-        return redirect()->route('employs.index')->with('success',trans('message.delete'));
+        if(Auth::user()->level_employee == 'employee' || Auth::user()->id == $employee->id || $employee->level_employee == 'leader'){
+            return redirect()->back()->with('success',trans('message.delete_fail'));
+        } 
+        else
+        {
+            $file= $employee->image;
+            File::delete('img/'.$file);
+            $employee->delete();
+            return redirect()->route('employs.index')->with('success',trans('message.delete'));
+        }
     }
 }

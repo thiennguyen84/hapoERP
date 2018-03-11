@@ -29,5 +29,5 @@ Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
     	'index', 'edit', 'update'
 	]]);
 
-	Route::resource('employs','User\EmployeeController')->middleware('usercheck');
+	Route::resource('employs','User\EmployeeController');
 });
