@@ -24,7 +24,7 @@
                     @php 
                         $stt=1;
                     @endphp
-                    @foreach ($overtime as $rows)
+                    @foreach ($overtimes as $rows)
                         <tr>
                             <td class="table-text">
                                 <div>{{ $stt++ }}</div>
@@ -64,7 +64,7 @@
                 </tbody>
             </table>
             <div class="pagination-container text-center">
-                {{ $overtime->links() }}
+                {{ $overtimes->links() }}
             </div>
         </div>
     </div> 

@@ -5,9 +5,10 @@
 <!-- Bootstrap Boilerplate... -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <a href="{{ route('attendsion.create') }}" class="btn btn-primary attendtion">Điểm danh ngay</a>
-            {{ csrf_field() }}
-            {{ method_field('GET') }}
+            <form action="{{ route('attendsion.store') }}" method="POST">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-primary attendtion">Điểm danh ngay</button>
+            </form>
             <h3 class="text-center">TimeSheet</h3>
         </div>
         <div class="panel-body">
@@ -23,7 +24,7 @@
                     @php 
                         $stt=1;
                     @endphp
-                    @foreach ($attendsion as $rows)
+                    @foreach ($attendsions as $rows)
                         <tr>
                             <td class="table-text">
                                 <div>{{ $stt++ }}</div>
@@ -40,7 +41,7 @@
                 </tbody>
             </table>
             <div class="pagination-container text-center">
-                {{ $attendsion->links() }}
+                {{ $attendsions->links() }}
             </div>
         </div>
     </div> 

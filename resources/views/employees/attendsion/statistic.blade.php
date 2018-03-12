@@ -19,7 +19,7 @@
                     @php 
                         $stt=1;
                     @endphp
-                    @foreach ($attendsion as $rows)
+                    @foreach ($attendsions as $rows)
                         <tr>
                             <td class="table-text">
                                 <div>{{ $stt++ }}</div>
@@ -39,7 +39,7 @@
                 </tbody>
             </table>
             <div class="pagination-container text-center">
-                {{ $attendsion->links() }}
+                {{ $attendsions->links() }}
             </div>
         </div>
     </div> 

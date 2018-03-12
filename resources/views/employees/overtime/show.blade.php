@@ -6,11 +6,11 @@
     <div class="row">
         <h2 class="text-center">THÔNG TIN CHI TIẾT OVERTIME</h2>
         <td>
-            <a title="Chỉnh sửa" href="{{ route('overtime.edit',$overtime->id) }}" class="glyphicon glyphicon-edit btn btn-primary"></a>
+            <a title="Chỉnh sửa" href="{{ route('overtime.edit',$overtimes->id) }}" class="glyphicon glyphicon-edit btn btn-primary"></a>
             <a title="Quay lại" href="{{ route('overtime.index') }}" class="btn btn-danger">Back</a>
         </td>
         <div class="row">
-            <h2 class="text-center">OverTime Ngày {{ (new \Carbon\Carbon($overtime->date))->format('d/m/Y') }}</h2>
+            <h2 class="text-center">OverTime Ngày {{ (new \Carbon\Carbon($overtimes->date))->format('d/m/Y') }}</h2>
         </div>
 
         <div class="row">
@@ -30,7 +30,7 @@
         <div class="row">
             <p class="col-md-2">Content</p>
             <p class="col-md-10">
-                <textarea name="content" class="form-control" disabled="">{{ $overtime->content }}</textarea>
+                <textarea name="content" class="form-control" disabled="">{{ $overtimes->content }}</textarea>
             </p>
         </div>
     </div>

@@ -13,7 +13,7 @@
 			<div class="row">
 				<p class="col-md-2">Date</p>
 				<p class="col-md-10">
-					<input type="date" name="date" value ="@php echo date('Y-m-d');@endphp" class="form-control" required="required">
+					<input type="text" name="date" value ="@php echo date('Y-m-d');@endphp" class="form-control" required="required">
 				</p>
 			</div>
 			
@@ -22,6 +22,9 @@
 				<p class="col-md-10">
 					<textarea rows="4" cols="50" name="todayContent" placeholder="Hôm nay bạn làm những gì?" class="form-control" required="required"></textarea>
 				</p>
+				@if ($errors->has('todayContent'))
+                   <p class="warning text-center text-danger">{{ $errors->first('todayContent') }}</p>
+                @endif
 			</div>
 			
 			<div class="row">
@@ -29,6 +32,9 @@
 				<p class="col-md-10">
 					<textarea rows="4" cols="50" name="tomorrowContent" placeholder="Ngày mai bạn định làm gì?" class="form-control" required="required"></textarea>
 				</p>
+				@if ($errors->has('tomorrowContent'))
+                   <p class="warning text-center text-danger">{{ $errors->first('tomorrowContent') }}</p>
+                @endif
 			</div>
 
 			<div class="row">
@@ -36,6 +42,9 @@
 				<p class="col-md-10">
 					<textarea rows="4" cols="50" name="problem" placeholder="Vấn đề bạn đang gặp phải?" class="form-control" required="required"></textarea>
 				</p>
+				@if ($errors->has('problem'))
+                   <p class="warning text-center text-danger">{{ $errors->first('problem') }}</p>
+                @endif
 			</div>
 			
 			<div class="row">

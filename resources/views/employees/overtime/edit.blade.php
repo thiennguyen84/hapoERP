@@ -8,36 +8,39 @@
 	<div class="panel panel-primary">
 		<div class="panel-heading">Edit OverTime</div>
 		<div class="panel-body add-edit">
-		<form method="POST" action="{{ route('overtime.update',$overtime->id) }}" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('overtime.update',$overtimes->id) }}" enctype="multipart/form-data">
 			 {{ csrf_field() }}
 			 {{ method_field('PUT') }}
 			<!-- rows -->
 			<div class="row">
 				<p class="col-md-2">Date</p>
 				<p class="col-md-10">
-					<input type="date" name="date" value ="{{ $overtime->date }}" class="form-control">
+					<input type="date" name="date" value ="{{ $overtimes->date }}" class="form-control">
 				</p>
 			</div>
 			
 			<div class="row">	
 				<p class="col-md-2">From Time</p>
 				<p class="col-md-10">
-					<input type="time" name="from" class="form-control" value="{{ $overtime->start_time }}"></input>
+					<input type="time" name="from" class="form-control" value="{{ $overtimes->start_time }}"></input>
 				</p>
 			</div>
 			
 			<div class="row">
 				<p class="col-md-2">To Time</p>
 				<p class="col-md-10">
-					<input type="time" name="to" class="form-control" value="{{ $overtime->end_time }}"></input>
+					<input type="time" name="to" class="form-control" value="{{ $overtimes->end_time }}"></input>
 				</p>
 			</div>
 
 			<div class="row">
 	            <p class="col-md-2">Content</p>
 	            <p class="col-md-10">
-	                <textarea name="content" class="form-control">{{ $overtime->content }}</textarea>
+	                <textarea name="content" class="form-control">{{ $overtimes->content }}</textarea>
 	            </p>
+	            @if ($errors->has('content'))
+                   <p class="warning text-center text-danger">{{ $errors->first('content') }}</p>
+                @endif
         	</div>
 			<!-- end rows -->
 			<!-- rows -->

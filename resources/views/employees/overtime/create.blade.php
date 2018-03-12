@@ -36,6 +36,9 @@
 				<p class="col-md-10">
 					<textarea name="content" class="form-control" required="required"></textarea>
 				</p>
+				@if ($errors->has('content'))
+                   <p class="warning text-center text-danger">{{ $errors->first('content') }}</p>
+                @endif
 			</div>
 			
 			<div class="row">

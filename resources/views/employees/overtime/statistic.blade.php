@@ -21,7 +21,7 @@
                     @php 
                         $stt=1;
                     @endphp
-                    @foreach ($overtime as $rows)
+                    @foreach ($overtimes as $rows)
                         <tr>
                             <td class="table-text">
                                 <div>{{ $stt++ }}</div>
@@ -47,7 +47,7 @@
                     	<tr>
                         	<th>Tổng số giờ OT</th>
                         	<th></th>
-                        	<th>{{ $sumOvertime }} hour</th>
+                        	<th>{{ $sumHour }} hour</th>
                         	<th></th>
                         	<th></th>
                         </tr>
@@ -55,7 +55,7 @@
                 </tbody>
             </table>
             <div class="pagination-container text-center">
-                {{ $overtime->links() }}
+                {{ $overtimes->links() }}
             </div>
         </div>
     </div> 

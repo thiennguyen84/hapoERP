@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Attention;
 use Auth;
 use Validator;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 
 
@@ -18,21 +19,25 @@ class AttendsionController extends Controller
      */
     public function index()
     {
-        $attendsion = Attention::where('user_id', Auth::user()->id)->paginate(config('app.pagination'));
-        return view("employees.attendsion.index", ['attendsion' => $attendsion]);
+        $attendsions = Attention::where('user_id', Auth::user()->id)->paginate(config('app.pagination'));
+        $data = [
+            'attendsions' => $attendsions,
+        ];
+        return view("employees.attendsion.index", $data);
     }
 
-    public function create()
+    public function store(Request $request)
     {
-        $attendsion = new Attention();
-        $attendsion->date = date('Y-m-d H:i:s');
-        $attendsion->user_id = Auth::user()->id;
-        $dateTime = Attention::where('user_id', Auth::user()->id)->orderBy('date','desc')->value('date');
+        $timeNow = Carbon::now();
+        $attendsions = new Attention();
+        $attendsions->date = $timeNow;
+        $attendsions->user_id = Auth::user()->id;
+        // return date of the latest date
+        $checkExitDate = Attention::where('user_id', Auth::user()->id)->orderBy('date','desc')->value('date');
         // cut element
-        $dateTimeDay = substr( $dateTime , 0, 10);
-        $date = substr($attendsion->date, 0, 10);
-        if(!($date === $dateTimeDay)) {
-        $attendsion->save();
+        $checkExitDate = substr( $checkExitDate , 0, 10);
+        if(!($timeNow->format('Y-m-d') === $checkExitDate)) {
+        $attendsions->save();
         session()->flash('success', trans('message.attendtion_success'));
         return redirect()->route('attendsion.index'); 
         }
@@ -41,68 +46,12 @@ class AttendsionController extends Controller
         return redirect()->route('attendsion.index'); 
     }
 
-     public function statistic()
+     public function statistical()
     {
-        $dateTime = Attention::where('user_id', Auth::user()->id)->orderBy('date', 'desc')->value('date');
-        // cut element
-        $dateTimeDay = substr( $dateTime ,0 ,7);
-        $attendsion = Attention::where('user_id',Auth::user()->id)->where('date', "LIKE", "%". $dateTimeDay ."%")->paginate(config('app.pagination'));
-        return view("employees.attendsion.statistic", ['attendsion' => $attendsion]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $attendsions = Attention::where('user_id',Auth::user()->id)->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->paginate(config('app.pagination'));
+        $data = [
+            'attendsions' => $attendsions,
+        ];
+        return view("employees.attendsion.statistic", $data);
     }
 }

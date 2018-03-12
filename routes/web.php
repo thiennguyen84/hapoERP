@@ -16,30 +16,29 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('home',function(){
-	return redirect(url('employee/report'));
+	return redirect()->route('attendsion.index');
 });
 Route::group(array("prefix"=>"admin","middleware"=>"auth"),function(){
 	//logout
-	Route::get('logout',function(){
+	Route::post('logout',function(){
 		Auth::logout();
-		return redirect(url('login'));
+		return redirect()->route('login');
 	});
 });
 Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
-	Route::get('logout',function(){
+	Route::post('logout',function(){
 		Auth::logout();
-		return redirect(url('login'));
+		return redirect()->route('login');
 	});
-	Route::get('attendsion/statistic', 'User\AttendsionController@statistic')->name('attendsion.statistic');
-	Route::get('overtime/statistic', 'User\OvertimeController@statistic')->name('overtime.statistic');
 	Route::resource('report', 'User\ReportController',['except' => [
     	'destroy'
 	]]);
+	Route::get('overtime/statistical', 'User\OvertimeController@statistical')->name('overtime.statistical');
 	Route::resource('overtime', 'User\OvertimeController');
+	Route::get('attendsion/statistical', 'User\AttendsionController@statistical')->name('attendsion.statistical');
 	Route::resource('attendsion', 'User\AttendsionController',['only' =>[
-		'index','create'
+		'index','store',
 	]]);
 	
 });

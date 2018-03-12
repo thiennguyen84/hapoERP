@@ -25,7 +25,7 @@
                     @php 
                         $stt=1;
                     @endphp
-                    @foreach ($report as $rows)
+                    @foreach ($reports as $rows)
                         <tr>
                             <td class="table-text">
                                 <div>{{ $stt++ }}</div>
@@ -59,7 +59,7 @@
                 </tbody>
             </table>
             <div class="pagination-container text-center">
-                {{ $report->links() }}
+                {{ $reports->links() }}
             </div>
         </div>
     </div> 
