@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 <div class="container">
 	<h2 class="head"><a href="{{route('profile.edit',$employee->id)}}" class="btn btn-info show-head"><span class="glyphicon glyphicon-pencil"></span></a>Employee "<strong class="">{{ $employee->name }}</strong>"</h2>

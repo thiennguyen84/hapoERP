@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 <div class="container">
 	<h2 class="head">List Vacation Parttime</h2>

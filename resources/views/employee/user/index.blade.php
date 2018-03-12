@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('title')
 <title>index</title>
 @endsection
@@ -53,8 +53,8 @@
         <td>{{ $value->address }}</td>
         <td>{{ $value->department }}</td>
         <td>{{ $value->level_japanese }}</td>
-        <th>{{ $value->level_employee}}</th>
-        <td><td><div class="show"><a href="{{ route('employs.show',$value->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a></div></td></td>
+        <td>{{ $value->level_employee}}</td>
+        <td><div class="show"><a href="{{ route('employs.show',$value->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a></div></td>
         <td><form action="{{ route('employs.destroy',$value->id) }}" method="POST">
           {{ csrf_field() }}
           {{ method_field('DELETE') }}

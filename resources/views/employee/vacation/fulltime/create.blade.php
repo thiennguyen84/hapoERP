@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 <div class="container">
 	<h2 class="head"><a href="{{ route('vacationfulltime.index') }}" class="btn btn-info show-head"><span class="glyphicon glyphicon-list-alt"></span></a>Vacation Fulltime</h2>
