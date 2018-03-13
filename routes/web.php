@@ -24,4 +24,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('register', 'Auth\RegisterController@showRegistrationForm');
     Route::post('register', 'Auth\RegisterController@register')->name('admin.register');
     Route::get('home', 'HomeController@index');
+    Route::resource('employee', 'EmployeeController',['except' => [
+    	'edit', 'update'
+	]]);
+	Route::get('/vacation','VacationController@index')->name('vacation.index');
+	Route::resource('fulltime', 'VacationFulltimeController',['only' => [
+    	'show'
+	]]);
 });
