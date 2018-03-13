@@ -34,4 +34,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('parttime', 'VacationParttimeController',['only' => [
         'show'
     ]]);
+
+Auth::routes();
+
+Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
+
+    Route::resource('vacationfulltime', 'User\VacationFulltimeController',['except' =>['show']]
+	);
+
+	Route::resource('vacationparttime', 'User\VacationParttimeController', ['except' =>['show']]);
+
+	Route::resource('profile', 'User\ProfileController', ['only' => [
+    	'index', 'edit', 'update'
+	]]);
+
+	Route::resource('employs','User\EmployeeController');
 });
