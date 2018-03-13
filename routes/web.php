@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('parttime', 'VacationParttimeController',['only' => [
         'show'
     ]]);
+});
 
 Auth::routes();
 
