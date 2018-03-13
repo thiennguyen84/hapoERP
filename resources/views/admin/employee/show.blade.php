@@ -21,7 +21,7 @@
 					 	Avatar
 					</div>
 					<div class="avata text-center">
-						<img src="{!! asset('img/'.$employee['image']) !!}" class="avata-img img-circle" alt="">
+						<img src="{!! asset('img/'.$employee['avatar']) !!}" class="avata-img img-circle" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6">

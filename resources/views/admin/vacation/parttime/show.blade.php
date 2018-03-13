@@ -4,7 +4,7 @@
     Vacation
     </h1>
     <ol class="breadcrumb">
-    <li><a href="{{ route('vacation.index') }}"><i class="fa fa-dashboard"></i>Fulltime</a></li>
+    <li><a href="{{ route('vacation.index') }}"><i class="fa fa-dashboard"></i>Parttime</a></li>
     <li class="active">show</li>
     </ol>
 @endsection
@@ -21,6 +21,8 @@
           <tr>
             <th>STT</th>
             <th>Date</th>
+            <th>Start End</th>
+            <th>End Time</th>
             <th>Reason</th>
           </tr>
         </thead>
@@ -28,10 +30,12 @@
           @php 
             $temp=1;
           @endphp
-        	@foreach ($fulltimes as $value)
+        	@foreach ($parttimes as $value)
           <tr>
             <td>{{ $temp++ }}</td>
             <td>{{ (new \Carbon\Carbon($value->date))->format('d/m/Y') }}</td>
+            <td>{{ $value->start_time }}</td>
+            <td>{{ $value->end_time }}</td>
             <td>{{ $value->reason }}</td>
           </tr>
           @endforeach

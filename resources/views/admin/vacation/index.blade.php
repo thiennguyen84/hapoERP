@@ -34,11 +34,12 @@
 				            <td>{{ $temp++ }}</td>
 				            <td>{{ $value->user->name }}</td>
 				            <td>{{ (new \Carbon\Carbon($value->date))->format('d/m/Y') }}</td>
-				            <td></td>
+				            
 				          </tr>
 				          @endforeach
 				        </tbody>
-						</table>
+					</table>
+					{{ $listfulltimes->links() }}
 				</div>
 			</div>
 		</div>	
@@ -53,6 +54,9 @@
 				          <tr>
 				            <th>STT</th>
 				            <th>Name</th>
+				            <th>Date</th>
+				            <th>Start End</th>
+				            <th>End Time</th>
 				          </tr>
 				        </thead>
 				        <tbody>
@@ -63,14 +67,19 @@
 				          <tr>
 				            <td>{{ $temp++ }}</td>
 				            <td>{{ $value->user->name }}</td>
+				            <td>{{ (new \Carbon\Carbon($value->date))->format('d/m/Y') }}</td>
+				            <td>{{ $value->start_time }}</td>
+				            <td>{{ $value->end_time }}</td>
 				          </tr>
 				          @endforeach
 				        </tbody>
       				</table>
+      				{{ $listparttimes->links() }}
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-md-6">
 			<div class="panel panel-default">
@@ -83,7 +92,6 @@
 				          <tr>
 				            <th>STT</th>
 				            <th>Name</th>
-				            <th>Last Day</th>
 				            <th class="text-center">Detail</th>
 				          </tr>
 				        </thead>
@@ -95,7 +103,6 @@
 				          <tr>
 				            <td>{{ $temp++ }}</td>
 				            <td>{{ $value->user->name }}</td>
-				            <td>{{ (new \Carbon\Carbon($value->date))->format('d/m/Y') }}</td>
 				            <td><div class="show"><a href="{{ route('fulltime.show',$value->user_id) }}" class="btn btn-info"><span class="glyphicon glyphicon-th"></span></a></div></td>
 				          </tr>
 				          @endforeach
@@ -126,7 +133,7 @@
 				          <tr>
 				            <td>{{ $temp++ }}</td>
 				            <td>{{ $value->user->name }}</td>
-				            <td><div class="show"><a href="#" class="btn btn-info"><span class="glyphicon glyphicon-th"></span></a></div></td>
+				            <td><div class="show"><a href="{{ route('parttime.show',$value->user_id) }}" class="btn btn-info"><span class="glyphicon glyphicon-th"></span></a></div></td>
 				          </tr>
 				          @endforeach
 				        </tbody>

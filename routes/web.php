@@ -31,4 +31,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 	Route::resource('fulltime', 'VacationFulltimeController',['only' => [
     	'show'
 	]]);
+    Route::resource('parttime', 'VacationParttimeController',['only' => [
+        'show'
+    ]]);
 });
