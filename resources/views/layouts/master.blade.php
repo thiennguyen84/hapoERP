@@ -416,18 +416,10 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-@yield('script')
 <script src="{{ asset('/js/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('/js/adminlte.min.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('/js/pages/dashboard.js') }}"></script>
-<!-- <script src="{{ asset('/js/app.js') }}"></script> -->
 <script src="{{ asset('/js/bootstrap-notify.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('/js/demo.js') }}"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		 @if(Session::has('success'))
@@ -446,5 +438,13 @@
 		@endif
 	});
 </script>
+@yield('script')
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('/js/demo.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('/js/pages/dashboard.js') }}"></script>
+<!-- <script src="{{ asset('/js/app.js') }}"></script> -->
 </body>
 </html>
