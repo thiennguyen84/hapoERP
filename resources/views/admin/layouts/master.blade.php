@@ -128,7 +128,7 @@
 			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
 			<li><a href="{{ route('vacation.index') }}"><i class="fa fa-circle-o"></i> Vacation</a></li>
 			<li><a href="{{ route('employee.index') }}"><i class="fa fa-circle-o"></i> Employee</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Salary</a></li>
+			<li><a href="{{ route('salary.index') }}"><i class="fa fa-circle-o"></i> Salary</a></li>
 		  </ul>
 		</li>
 	  </ul>

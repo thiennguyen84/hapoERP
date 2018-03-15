@@ -41,9 +41,8 @@
             <th>Level</th>
             <th>Birthday</th>
             <th>Address</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th colspan="3" class="text-center">Detail</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -59,7 +58,8 @@
             <td>{{ ($value->level_employee == 1)?'leader':'employee' }}</td>
             <td>{{ (new \Carbon\Carbon($value->birthday))->format('d/m/Y') }}</td>
             <td>{{ $value->address }}</td>
-            <td><div class="show"><a href="{{ route('employee.show',$value->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></a></div></td>
+            <td><div class="show"><a href="{{ route('employee.show',$value->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a></div></td>
+            <td><div class="show"><a href="{{ route('salary.create',$value->id) }}" class="btn btn-info"><span class="fa fa-usd"></span></a></div></td>
             <td><form action="{{ route('employee.destroy',$value->id) }}" method="POST">
               {{ csrf_field() }}
               {{ method_field('DELETE') }}

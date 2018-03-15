@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('parttime', 'VacationParttimeController',['only' => [
         'show'
     ]]);
+    Route::get('/salary', 'SalaryController@index')->name('salary.index');
+    Route::get('/salary/{id}', 'SalaryController@create')->name('salary.create');
+    Route::post('/salary/{id}', 'SalaryController@store')->name('salary.store');
 });
 
 Auth::routes();

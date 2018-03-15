@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\VacationFulltime;
+use Illuminate\Support\Facades\Mail;
 use Auth;
 
 class VacationFulltimeController extends Controller
@@ -42,7 +43,17 @@ class VacationFulltimeController extends Controller
         $vacation->date = $request->date;
         $vacation->reason = $request->reason;
         $vacation->user_id = Auth::user()->id;
+        $data = [
+            'date' => $vacation->date,
+            'reason' => $vacation->reason,
+            'name' => $vacation->user->name,
+        ];
         $vacation->save();
+        Mail::send('employee.vacation.fulltime.mail', ['data' => $data] , function($message) {
+        $message->from(Auth::user()->email, Auth::user()->name);
+        $message->to('thiennh@haposoft.com', 'Admin');
+        $message->subject('Xin nghỉ, đi muộn, về sớm');
+        });
         return redirect()->route('vacationfulltime.create')->with('success',trans('message.create'));
     }
 
