@@ -38,7 +38,7 @@
 	  <!-- mini logo for sidebar mini 50x50 pixels -->
 	  <span class="logo-mini"><b>Hapo</b></span>
 	  <!-- logo for regular state and mobile devices -->
-	  <span class="logo-lg" id="logo"><img src="{{ asset('img/hapoERP.png') }}"></span>
+	  <span class="logo-lg" id="logo"><img src="{{ asset('/img/hapoERP.png') }}"></span>
 	</a>
 	<!-- Header Navbar: style can be found in header.less -->
 	<nav class="navbar navbar-static-top">
@@ -52,22 +52,31 @@
 		  <!-- User Account: style can be found in dropdown.less -->
 		  <li class="dropdown user user-menu">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			  <img src="" class="user-image" alt="User Image">
 			  <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
 			</a>
-			<ul class="dropdown-menu" role="menu">
+			<ul class="dropdown-menu">
+			  <!-- User image -->
+			  <li class="user-header">
+				<img src="" class="img-circle" alt="User Image">
+
+				<p>
+				  {{ Auth::guard('admin')->user()->name }} - Giám đốc
+				</p>
+			  </li>
 			  <!-- Menu Footer-->
 			  <li class="user-footer">
-                    <a href="{{ route('admin.logout') }}"
-                        onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-
-                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-            </ul>
+				<div class="pull-left">
+				  <a href="#" class="btn btn-default btn-flat">Profile</a>
+				</div>
+				<div class="pull-right">
+				  <form action="{{ route('admin.logout') }}" method="POST">
+                	{{ csrf_field() }}
+                		<button type="submit" class="btn btn-default btn-flat">Sign out</button>
+           		  </form>
+				</div>
+			  </li>
+			</ul>
 		  </li>
 		  <!-- Control Sidebar Toggle Button -->
 		  <li>
@@ -81,6 +90,16 @@
   <aside class="main-sidebar">
 	<!-- sidebar: style can be found in sidebar.less -->
 	<section class="sidebar">
+	  <!-- Sidebar user panel -->
+	  <div class="user-panel">
+		<div class="pull-left image">
+		  <img src="" class="img-circle" alt="User Image">
+		</div>
+		<div class="pull-left info">
+		  <p>{{ Auth::guard('admin')->user()->name }}</p>
+		  <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+		</div>
+	  </div>
 	  <!-- search form -->
 	  <form action="#" method="get" class="sidebar-form">
 		<div class="input-group">
@@ -109,6 +128,7 @@
 			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
 			<li><a href="{{ route('vacation.index') }}"><i class="fa fa-circle-o"></i> Vacation</a></li>
 			<li><a href="{{ route('employee.index') }}"><i class="fa fa-circle-o"></i> Employee</a></li>
+			<li><a href="#"><i class="fa fa-circle-o"></i> Salary</a></li>
 		  </ul>
 		</li>
 	  </ul>
