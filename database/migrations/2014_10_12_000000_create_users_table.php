@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->text('avatar')->nullable();
             $table->string('sex')->nullable();
             $table->string('level_japanese')->nullable();
-            $table->string('level_employee');
-            $table->text('department');
+            $table->string('level_employee')->nullable();
+            $table->text('department')->nullable();
             $table->SoftDeletes();
             $table->rememberToken();
             $table->timestamps();

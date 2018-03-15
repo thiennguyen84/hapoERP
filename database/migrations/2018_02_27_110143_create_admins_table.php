@@ -18,6 +18,7 @@ class CreateAdminsTable extends Migration
             $table->SoftDeletes();
             $table->string('password');
             $table->timestamps();
+            $table->rememberToken();
         });
     }
     /**
