@@ -1,7 +1,5 @@
-@extends('layouts.user')
-@section('title')
-<title>Thay đổi thông tin</title>
-@endsession
+@extends('layouts.master')
+
 @section('content')
 
 <div class="col-md-8 col-xs-offset-2" style="top:80px;">	

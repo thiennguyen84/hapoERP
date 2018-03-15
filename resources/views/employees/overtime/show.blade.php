@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.master')
 
 @section('content')
 
@@ -16,14 +16,14 @@
         <div class="row">
             <p class="col-md-2">From Time</p>
             <p class="col-md-10">
-                <input type="time" name="from" class="form-control" value="{{ $overtime->start_time }}" disabled=""></input>
+                <input type="time" name="from" class="form-control" value="{{ $overtimes->start_time }}" disabled=""></input>
             </p>
         </div>
 
         <div class="row">
             <p class="col-md-2">To Time</p>
             <p class="col-md-10">
-                <input type="time" name="to" class="form-control" value="{{ $overtime->end_time }}" disabled=""></input>
+                <input type="time" name="to" class="form-control" value="{{ $overtimes->end_time }}" disabled=""></input>
             </p>
         </div>
 

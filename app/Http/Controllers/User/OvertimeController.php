@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Overtime;
 use Auth;
 use Validator;
+use DB;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddOvertimeRequest;
@@ -91,8 +92,13 @@ class OvertimeController extends Controller
 
      public function statistical()
     {
-        $overtimes = Overtime::where('user_id',Auth::user()->id)->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->paginate(config('app.pagination'));
+         // statistical overtimes of month
+        $overtimes = Overtime::select(DB::raw('sum(hours) as sum_hours, date'))
+                     ->where('user_id', Auth::user()->id)
+                     ->whereMonth('date', Carbon::now()->format('m'))
+                     ->whereYear('date', Carbon::now()->format('Y'));
         $sumHour = $overtimes->sum('hours');
+        $overtimes = $overtimes->groupBy('date')->paginate(config('app.pagination'));
         $data = [
             'overtimes' => $overtimes,
             'sumHour' => $sumHour,

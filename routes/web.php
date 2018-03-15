@@ -19,18 +19,12 @@ Auth::routes();
 Route::get('home',function(){
 	return redirect()->route('attendsion.index');
 });
-Route::group(array("prefix"=>"admin","middleware"=>"auth"),function(){
-	//logout
-	Route::post('logout',function(){
-		Auth::logout();
-		return redirect()->route('login');
-	});
-});
+
 Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
 	Route::post('logout',function(){
 		Auth::logout();
 		return redirect()->route('login');
-	});
+	})->name('logout');
 	Route::resource('report', 'User\ReportController',['except' => [
     	'destroy'
 	]]);

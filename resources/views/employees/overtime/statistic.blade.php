@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.master')
 
 @section('content')
 
@@ -31,16 +31,13 @@
                                 <div>{{ (new \Carbon\Carbon($rows->date))->format('d/m/Y') }}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{ $rows->hours }} hour</div>
+                                <div>{{ str_limit($rows->sum_hours, 5) }} hour</div>
                             </td>
 
                             <td class="table-text">
-                                <div>{{ str_limit($rows->content, 80) }} hour</div>
+                                <div>{{ str_limit($rows->content, 50) }}</div>
                             </td>
 
-                            <td>
-                                <a title="Chi tiết" href="{{ route('overtime.show',$rows->id) }}" class="glyphicon glyphicon-book btn btn-primary"></a>
-                            </td>
                         </tr>
 
                     @endforeach
