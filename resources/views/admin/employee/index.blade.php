@@ -56,7 +56,7 @@
             <td>{{ $value->name }}</td>
             <td>{{ $value->email }}</td>
             <td>{{ $value->department }}</td>
-            <td>{{ $value->level_employee }}</td>
+            <td>{{ ($value->level_employee == 1)?'leader':'employee' }}</td>
             <td>{{ (new \Carbon\Carbon($value->birthday))->format('d/m/Y') }}</td>
             <td>{{ $value->address }}</td>
             <td><div class="show"><a href="{{ route('employee.show',$value->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></a></div></td>

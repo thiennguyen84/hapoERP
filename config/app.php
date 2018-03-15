@@ -228,4 +228,6 @@ return [
 
     ],
     'paginate' => 10,
+    'pass' => '1234567890',
+    'level_employee' => '2',
 ];

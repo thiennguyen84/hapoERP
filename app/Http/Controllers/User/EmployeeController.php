@@ -22,7 +22,8 @@ class EmployeeController extends Controller
     {
         $name = $request->search;
         $employees = User::where('department', Auth::user()->department)->where('name','like','%'.$name.'%')->orderBy('name', 'desc')->paginate(config('app.paginate'));
-        return view('employee.user.index',['employees'=>$employees,'name'=>$name]);    
+        $data = ['employees'=>$employees,'name'=>$name];
+        return view('employee.user.index', $data);    
     }
 
     /**
@@ -32,7 +33,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        if(Auth::user()->level_employee == 'employee'){
+        if(Auth::user()->level_employee == 2){
             return redirect()->back()->with('success',trans('message.add_fail'));
         }
         else
@@ -51,10 +52,10 @@ class EmployeeController extends Controller
     {
         $employee = new User();
         $employee->name = $request->name;
-        $employee->password = bcrypt("1234567890");
+        $employee->password = bcrypt(config('app.password'));
         $employee->email = $request->email;
         $employee->department = Auth::user()->department;
-        $employee->level_employee = "employee";
+        $employee->level_employee = config('app.level_employee');
         $employee->save();
         return redirect()->route('employs.index')->with('success',trans('message.add'));
     }
@@ -123,7 +124,7 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         $employee = User::findOrFail($id);
-        if(Auth::user()->level_employee == 'employee' || Auth::user()->id == $employee->id || $employee->level_employee == 'leader'){
+        if(Auth::user()->level_employee == 2 || Auth::user()->id == $employee->id || $employee->level_employee == 1){
             return redirect()->back()->with('success',trans('message.delete_fail'));
         } 
         else

@@ -45,10 +45,10 @@
 				<div class="form-group">
 					<label for="department">Level:</label>
 					    <label class="radio-inline">
-					      <input type="radio" name="level" value="leader" checked="">leader
+					      <input type="radio" name="level" value="1" checked="">leader
 					    </label>
 					    <label class="radio-inline">
-					      <input type="radio" name="level" value="employee">employee
+					      <input type="radio" name="level" value="2">employee
 					    </label>
 				</div>
 		  		<div class="sub">

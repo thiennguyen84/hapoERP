@@ -15,9 +15,9 @@ class VacationFulltimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($id)
     {
-        $fulltimes = VacationFulltime::where('user_id',$user_id)->orderBy('date','DESC')->paginate(config('app.paginate'));
+        $fulltimes = VacationFulltime::where('user_id',$id)->orderBy('date','DESC')->paginate(config('app.paginate'));
         $name = $fulltimes->first();
         
         return view('admin.vacation.fulltime.show',['fulltimes' => $fulltimes, 'name'=>$name]);

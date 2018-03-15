@@ -11,6 +11,9 @@ class User extends Authenticatable
     use SoftDeletes;
     use Notifiable;
 
+    const leader = 1;
+    const employee = 2;
+
     /**
      * The attributes that are mass assignable.
      *

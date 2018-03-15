@@ -19,8 +19,12 @@ class EmployeeController extends Controller
     public function index(request $request)
     {
         $name = $request->search;
-        $employees = User::where('name','like','%'.$name.'%')->orwhere('email','like','%'.$name.'%')->orderBy('department')->paginate(config('app.paginate'));   
-        return view('admin.employee.index',['employees'=>$employees,'name'=>$name]);
+        $employees = User::where('name','like','%'.$name.'%')->orwhere('email','like','%'.$name.'%')->orderBy('department')->paginate(config('app.paginate')); 
+        $data = [
+            'employees'=>$employees,
+            'name'=>$name
+        ];  
+        return view('admin.employee.index', $data);
     }
 
     /**
@@ -44,7 +48,7 @@ class EmployeeController extends Controller
         $employee = new User();
         $employee->name = $request->name;
         $employee->email = $request->email;
-        $employee->password = bcrypt("1234567890");
+        $employee->password = bcrypt(config('app.pass'));
         $employee->department = $request->department;
         $employee->level_employee = $request->level;
         $employee->save();

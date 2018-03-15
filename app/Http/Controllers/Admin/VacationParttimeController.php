@@ -15,9 +15,9 @@ class VacationParttimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($id)
     {
-        $parttimes = VacationParttime::where('user_id',$user_id)->orderBy('date','DESC')->paginate(config('app.paginate'));
+        $parttimes = VacationParttime::where('user_id',$id)->orderBy('date','DESC')->paginate(config('app.paginate'));
         $name = $parttimes->first();
         
         return view('admin.vacation.parttime.show',['parttimes' => $parttimes, 'name'=>$name]);

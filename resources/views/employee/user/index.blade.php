@@ -53,7 +53,7 @@
         <td>{{ $value->address }}</td>
         <td>{{ $value->department }}</td>
         <td>{{ $value->level_japanese }}</td>
-        <td>{{ $value->level_employee}}</td>
+        <td>{{ ($value->level_employee == 1)?'leader':'employee' }}</td>
         <td><div class="show"><a href="{{ route('employs.show',$value->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a></div></td>
         <td><form action="{{ route('employs.destroy',$value->id) }}" method="POST">
           {{ csrf_field() }}
