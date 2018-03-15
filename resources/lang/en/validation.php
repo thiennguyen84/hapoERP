@@ -100,8 +100,21 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+         'todayContent' => [
+            'max' => 'Trường :attribute vượt quá 255 ký tự.',
+            'min' => 'Trường :attribute tối thiểu 6 ký tự.',
+        ],
+        'tomorrowContent' => [
+            'max' => 'Trường :attribute vượt quá 255 ký tự.',
+            'min' => 'Trường :attribute tối thiểu 6 ký tự.',
+        ],
+        'problem' => [
+            'max' => 'Trường :attribute vượt quá 255 ký tự.',
+            'min' => 'Trường :attribute tối thiểu 6 ký tự.',
+        ],
+        'content' => [
+            'max' => 'Trường :attribute vượt quá 255 ký tự.',
+            'min' => 'Trường :attribute tối thiểu 6 ký tự.',
         ],
     ],
 

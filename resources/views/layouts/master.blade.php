@@ -123,8 +123,8 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li><a href="#"><i class="fa fa-circle-o"></i> Attendsion</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> OverTime</a></li>
+			<li><a href="{{ route('attendsion.statistical') }}"><i class="fa fa-circle-o"></i> Attendsion</a></li>
+			<li><a href="{{ route('overtime.statistical') }}"><i class="fa fa-circle-o"></i> OverTime</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
@@ -152,8 +152,8 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li><a href="#"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Show</a></li>
+			<li><a href="{{ route('attendsion.store') }}"><i class="fa fa-circle-o"></i> Create</a></li>
+			<li><a href="{{ route('attendsion.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
 		  </ul>
 		</li>
 		<li class="treeview">
@@ -165,8 +165,8 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li><a href="#"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Show</a></li>
+			<li><a href="{{ route('overtime.create') }}"><i class="fa fa-circle-o"></i> Create</a></li>
+			<li><a href="{{ route('overtime.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
 		  </ul>
 		</li>
 		<li class="treeview">
@@ -177,8 +177,8 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li><a href="#"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Show</a></li>
+			<li><a href="{{ route('report.create') }}"><i class="fa fa-circle-o"></i> Create</a></li>
+			<li><a href="{{ route('report.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
 		  </ul>
 		</li>
 	  </ul>
