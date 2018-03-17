@@ -125,9 +125,9 @@
 		  <ul class="treeview-menu">
 			<li><a href="{{ route('attendsion.statistical') }}"><i class="fa fa-circle-o"></i> Attendsion</a></li>
 			<li><a href="{{ route('overtime.statistical') }}"><i class="fa fa-circle-o"></i> OverTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
+			<li><a href="{{ route('report.index') }}"><i class="fa fa-circle-o"></i> Report</a></li>
+			<li><a href="{{ route('vacationfulltime.index') }}"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
+			<li><a href="{{ route('vacationparttime.index') }}"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
 			<li><a href="{{  route('employs.index') }}"><i class="fa fa-circle-o"></i> Employee</a></li>
 		  </ul>
 		</li>

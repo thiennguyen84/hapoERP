@@ -52,13 +52,13 @@
 		  <!-- User Account: style can be found in dropdown.less -->
 		  <li class="dropdown user user-menu">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			  <img src="" class="user-image" alt="User Image">
+			  <img src="{{ asset('/img/5b3454865dong_nguyen_thanh_tung_zfwz.jpg') }}" class="user-image" alt="User Image">
 			  <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
 			</a>
 			<ul class="dropdown-menu">
 			  <!-- User image -->
 			  <li class="user-header">
-				<img src="" class="img-circle" alt="User Image">
+				<img src="{{ asset('/img/5b3454865dong_nguyen_thanh_tung_zfwz.jpg') }}" class="img-circle" alt="User Image">
 
 				<p>
 				  {{ Auth::guard('admin')->user()->name }} - Giám đốc
@@ -93,7 +93,7 @@
 	  <!-- Sidebar user panel -->
 	  <div class="user-panel">
 		<div class="pull-left image">
-		  <img src="" class="img-circle" alt="User Image">
+		  <img src="{{ asset('/img/5b3454865dong_nguyen_thanh_tung_zfwz.jpg') }}" class="img-circle" alt="User Image">
 		</div>
 		<div class="pull-left info">
 		  <p>{{ Auth::guard('admin')->user()->name }}</p>
@@ -123,9 +123,9 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li><a href="#"><i class="fa fa-circle-o"></i> Attendsion</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> OverTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
+			<li><a href="{{ route('attendsions.index') }}"><i class="fa fa-circle-o"></i> Attendsion</a></li>
+			<li><a href="{{ route('overtimes.index') }}"><i class="fa fa-circle-o"></i> OverTime</a></li>
+			<li><a href="{{ route('reports.index') }}"><i class="fa fa-circle-o"></i> Report</a></li>
 			<li><a href="{{ route('vacation.index') }}"><i class="fa fa-circle-o"></i> Vacation</a></li>
 			<li><a href="{{ route('employee.index') }}"><i class="fa fa-circle-o"></i> Employee</a></li>
 			<li><a href="{{ route('salary.index') }}"><i class="fa fa-circle-o"></i> Salary</a></li>

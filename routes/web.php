@@ -37,6 +37,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/salary', 'SalaryController@index')->name('salary.index');
     Route::get('/salary/{id}', 'SalaryController@create')->name('salary.create');
     Route::post('/salary/{id}', 'SalaryController@store')->name('salary.store');
+
+    Route::resource('attendsions', 'AttendsionController', ['only' =>[
+       'index','show',
+    ]]);
+    Route::get('overtimes/statistical/{statistical}', 'OvertimeController@statistical')->name('overtimes.statistical');
+    Route::resource('overtimes', 'OvertimeController', ['only' =>[
+       'index','show',
+    ]]);
+    Route::resource('reports', 'ReportController',['only' => [
+       'index', 'show',
+    ]]);
 });
 
 Auth::routes();
