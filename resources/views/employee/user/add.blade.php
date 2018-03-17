@@ -1,4 +1,14 @@
 @extends('layouts.master')
+@section('title_head')
+<h1>
+    Employee
+    </h1>
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>Employee</a></li>
+    <li class="active">Add</li>
+    </ol>
+@endsection
+
 @section('title')
 <title>add</title>
 @endsection

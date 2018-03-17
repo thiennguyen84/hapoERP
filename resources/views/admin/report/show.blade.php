@@ -1,4 +1,13 @@
 @extends('admin.layouts.master')
+@section('title_head')
+<h1>
+    Report
+    </h1>
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>Report</a></li>
+    <li class="active">show</li>
+    </ol>
+@endsection
 
 @section('content')
 

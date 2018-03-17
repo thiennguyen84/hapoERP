@@ -1,4 +1,14 @@
 @extends('layouts.master')
+@section('title_head')
+<h1>
+    Profile
+    </h1>
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>Profile</a></li>
+    <li class="active">Edit</li>
+    </ol>
+@endsection
+
 @section('content')
 <div class="container">
 	<h2 class="head">Employee "<strong class="">{{ $employee->name }}</strong>"</h2>

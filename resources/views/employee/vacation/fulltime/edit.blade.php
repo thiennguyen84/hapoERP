@@ -1,4 +1,14 @@
 @extends('layouts.master')
+@section('title_head')
+<h1>
+    Vacation
+    </h1>
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>Fulltime</a></li>
+    <li class="active">Edit</li>
+    </ol>
+@endsection
+
 @section('content')
 <div class="container">
 	<div class="row">
