@@ -67,7 +67,7 @@
 			  <!-- Menu Footer-->
 			  <li class="user-footer">
 				<div class="pull-left">
-				  <a href="#" class="btn btn-default btn-flat">Profile</a>
+				  <a href="{{ route('profile.index') }}" class="btn btn-default btn-flat">Profile</a>
 				</div>
 				<div class="pull-right">
 				  <form action="{{ route('logout') }}" method="POST">
@@ -125,10 +125,10 @@
 		  <ul class="treeview-menu">
 			<li><a href="{{ route('attendsion.statistical') }}"><i class="fa fa-circle-o"></i> Attendsion</a></li>
 			<li><a href="{{ route('overtime.statistical') }}"><i class="fa fa-circle-o"></i> OverTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Employee</a></li>
+			<li><a href="{{ route('report.index') }}"><i class="fa fa-circle-o"></i> Report</a></li>
+			<li><a href="{{ route('vacationfulltime.index') }}"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
+			<li><a href="{{ route('vacationparttime.index') }}"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
+			<li><a href="{{  route('employs.index') }}"><i class="fa fa-circle-o"></i> Employee</a></li>
 		  </ul>
 		</li>
 		<li class="active treeview">
@@ -139,8 +139,8 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
+			<li class="active"><a href="{{ route('vacationfulltime.create') }}"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
+			<li><a href="{{ route('vacationparttime.create') }}"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
 		  </ul>
 		</li>
 		<li class="treeview">
@@ -152,8 +152,7 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li><a href="{{ route('attendsion.store') }}"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="{{ route('attendsion.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
+			<li><a href="{{ route('attendsion.index') }}"><i class="fa fa-circle-o"></i> Create</a></li>
 		  </ul>
 		</li>
 		<li class="treeview">
@@ -190,13 +189,7 @@
   <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-	  <h1>
-		Dashboard
-	  </h1>
-	  <ol class="breadcrumb">
-		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">Dashboard</li>
-	  </ol>
+	  @yield('title_head')
 	</section>
 
 	<!-- Main content -->
@@ -415,14 +408,7 @@
 <script src="{{ asset('/js/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('/js/adminlte.min.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('/js/pages/dashboard.js') }}"></script>
-<!-- <script src="{{ asset('/js/app.js') }}"></script> -->
 <script src="{{ asset('/js/bootstrap-notify.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('/js/demo.js') }}"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		 @if(Session::has('success'))
@@ -441,5 +427,13 @@
 		@endif
 	});
 </script>
+@yield('script')
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('/js/demo.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('/js/pages/dashboard.js') }}"></script>
+<!-- <script src="{{ asset('/js/app.js') }}"></script> -->
 </body>
 </html>
