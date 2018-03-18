@@ -23,7 +23,6 @@
                     <th>STT</th>
                     <th>Date</th>
                     <th>Total hours</th>
-                    <th>Content</th>
                 </thead>
                  
                 <tbody>
@@ -43,10 +42,6 @@
                                 <div>{{ str_limit($rows->sum_hours, 5) }} hour</div>
                             </td>
 
-                            <td class="table-text">
-                                <div>{{ str_limit($rows->content, 50) }}</div>
-                            </td>
-
                         </tr>
 
                     @endforeach
@@ -54,7 +49,6 @@
                         	<th>Tổng số giờ OT</th>
                         	<th></th>
                         	<th>{{ $sumHour }} hour</th>
-                        	<th></th>
                         	<th></th>
                         </tr>
                        

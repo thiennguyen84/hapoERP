@@ -152,8 +152,7 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-			<li><a href="{{ route('attendsion.store') }}"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="{{ route('attendsion.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
+			<li><a href="{{ route('attendsion.index') }}"><i class="fa fa-circle-o"></i> Create</a></li>
 		  </ul>
 		</li>
 		<li class="treeview">
