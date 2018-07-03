@@ -15,19 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
-Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
-
-    Route::resource('vacationfulltime', 'User\VacationFulltimeController',['except' =>['show']]
-	);
-
-	Route::resource('vacationparttime', 'User\VacationParttimeController', ['except' =>['show']]);
-
-	Route::resource('profile', 'User\ProfileController', ['only' => [
-    	'index', 'edit', 'update'
-	]]);
-
-	Route::resource('employs','User\EmployeeController');
+Route::get('home',function(){
+	return redirect()->route('attendsion.index');
 });
+
+Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
+	Route::post('logout',function(){
+		Auth::logout();
+		return redirect()->route('login');
+	})->name('logout');
+	Route::resource('report', 'User\ReportController',['except' => [
+    	'destroy'
+	]]);
+	Route::get('overtime/statistical', 'User\OvertimeController@statistical')->name('overtime.statistical');
+	Route::resource('overtime', 'User\OvertimeController');
+	Route::get('attendsion/statistical', 'User\AttendsionController@statistical')->name('attendsion.statistical');
+	Route::resource('attendsion', 'User\AttendsionController',['only' =>[
+		'index','store',
+	]]);
+	
+});
+

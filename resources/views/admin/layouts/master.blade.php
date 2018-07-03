@@ -38,9 +38,7 @@
 	  <!-- mini logo for sidebar mini 50x50 pixels -->
 	  <span class="logo-mini"><b>Hapo</b></span>
 	  <!-- logo for regular state and mobile devices -->
-
 	  <span class="logo-lg" id="logo"><img src="{{ asset('/img/hapoERP.png') }}"></span>
-
 	</a>
 	<!-- Header Navbar: style can be found in header.less -->
 	<nav class="navbar navbar-static-top">
@@ -54,30 +52,28 @@
 		  <!-- User Account: style can be found in dropdown.less -->
 		  <li class="dropdown user user-menu">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			  <img src="{{ asset('/img/'.Auth::user()->avatar) }}" class="user-image" alt="User Image">
-			  <span class="hidden-xs">{{ Auth::user()->name }}</span>
+			  <img src="" class="user-image" alt="User Image">
+			  <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
 			</a>
 			<ul class="dropdown-menu">
 			  <!-- User image -->
 			  <li class="user-header">
-				<img src="{{ asset('/img/'.Auth::user()->avatar) }}" class="img-circle" alt="User Image">
+				<img src="" class="img-circle" alt="User Image">
 
 				<p>
-				  {{ Auth::user()->name }} - {{ Auth::user()->department }}
+				  {{ Auth::guard('admin')->user()->name }} - Giám đốc
 				</p>
 			  </li>
 			  <!-- Menu Footer-->
 			  <li class="user-footer">
 				<div class="pull-left">
-
 				  <a href="#" class="btn btn-default btn-flat">Profile</a>
 				</div>
 				<div class="pull-right">
-				  <form action="{{ route('logout') }}" method="POST">
+				  <form action="{{ route('admin.logout') }}" method="POST">
                 	{{ csrf_field() }}
                 		<button type="submit" class="btn btn-default btn-flat">Sign out</button>
            		  </form>
-
 				</div>
 			  </li>
 			</ul>
@@ -97,10 +93,10 @@
 	  <!-- Sidebar user panel -->
 	  <div class="user-panel">
 		<div class="pull-left image">
-		  <img src="{{ asset('/img/'.Auth::user()->avatar) }}" class="img-circle" alt="User Image">
+		  <img src="" class="img-circle" alt="User Image">
 		</div>
 		<div class="pull-left info">
-		  <p>{{ Auth::user()->name }}</p>
+		  <p>{{ Auth::guard('admin')->user()->name }}</p>
 		  <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 		</div>
 	  </div>
@@ -127,72 +123,12 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
-
-			<li><a href="{{ route('attendsion.statistical') }}"><i class="fa fa-circle-o"></i> Attendsion</a></li>
-			<li><a href="{{ route('overtime.statistical') }}"><i class="fa fa-circle-o"></i> OverTime</a></li>
+			<li><a href="#"><i class="fa fa-circle-o"></i> Attendsion</a></li>
+			<li><a href="#"><i class="fa fa-circle-o"></i> OverTime</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
+			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Employee</a></li>
-
-		  </ul>
-		</li>
-		<li class="active treeview">
-		  <a href="#">
-			<i class="fa fa-dashboard"></i> <span>Vacation</span>
-			<span class="pull-right-container">
-			  <span class="label label-primary pull-right">2</span>
-			</span>
-		  </a>
-		  <ul class="treeview-menu">
-
-			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
-			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
-
-		  </ul>
-		</li>
-		<li class="treeview">
-		  <a href="#">
-			<i class="fa fa-files-o"></i>
-			<span>Attendsion</span>
-			<span class="pull-right-container">
-			  <i class="fa fa-angle-left pull-right"></i>
-			</span>
-		  </a>
-		  <ul class="treeview-menu">
-
-			<li><a href="{{ route('attendsion.store') }}"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="{{ route('attendsion.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
-
-		  </ul>
-		</li>
-		<li class="treeview">
-		  <a href="#">
-			<i class="fa fa-laptop"></i>
-			<span>OverTime</span>
-			<span class="pull-right-container">
-			  <i class="fa fa-angle-left pull-right"></i>
-			</span>
-		  </a>
-		  <ul class="treeview-menu">
-
-			<li><a href="{{ route('overtime.create') }}"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="{{ route('overtime.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
-
-		  </ul>
-		</li>
-		<li class="treeview">
-		  <a href="#">
-			<i class="fa fa-edit"></i> <span>Report</span>
-			<span class="pull-right-container">
-			  <i class="fa fa-angle-left pull-right"></i>
-			</span>
-		  </a>
-		  <ul class="treeview-menu">
-
-			<li><a href="{{ route('report.create') }}"><i class="fa fa-circle-o"></i> Create</a></li>
-			<li><a href="{{ route('report.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
-
+			<li><a href="#"><i class="fa fa-circle-o"></i> Salary</a></li>
 		  </ul>
 		</li>
 	  </ul>
@@ -429,7 +365,6 @@
 <script src="{{ asset('/js/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
-
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -438,7 +373,6 @@
 <script src="{{ asset('/js/bootstrap-notify.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/js/demo.js') }}"></script>
-
 <script type="text/javascript">
 	$(document).ready(function () {
 		 @if(Session::has('success'))
@@ -457,6 +391,5 @@
 		@endif
 	});
 </script>
-
 </body>
 </html>

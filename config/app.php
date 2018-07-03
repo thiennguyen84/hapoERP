@@ -227,6 +227,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-    'paginate' => 10,
+
+    'pagination' => 10,
+
 
 ];
