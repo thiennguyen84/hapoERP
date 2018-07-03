@@ -38,7 +38,9 @@
 	  <!-- mini logo for sidebar mini 50x50 pixels -->
 	  <span class="logo-mini"><b>Hapo</b></span>
 	  <!-- logo for regular state and mobile devices -->
+
 	  <span class="logo-lg" id="logo"><img src="{{ asset('/img/hapoERP.png') }}"></span>
+
 	</a>
 	<!-- Header Navbar: style can be found in header.less -->
 	<nav class="navbar navbar-static-top">
@@ -67,6 +69,7 @@
 			  <!-- Menu Footer-->
 			  <li class="user-footer">
 				<div class="pull-left">
+
 				  <a href="#" class="btn btn-default btn-flat">Profile</a>
 				</div>
 				<div class="pull-right">
@@ -74,6 +77,7 @@
                 	{{ csrf_field() }}
                 		<button type="submit" class="btn btn-default btn-flat">Sign out</button>
            		  </form>
+
 				</div>
 			  </li>
 			</ul>
@@ -123,12 +127,14 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
+
 			<li><a href="{{ route('attendsion.statistical') }}"><i class="fa fa-circle-o"></i> Attendsion</a></li>
 			<li><a href="{{ route('overtime.statistical') }}"><i class="fa fa-circle-o"></i> OverTime</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Report</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Employee</a></li>
+
 		  </ul>
 		</li>
 		<li class="active treeview">
@@ -139,8 +145,10 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
+
 			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> Vacation FullTime</a></li>
 			<li><a href="#"><i class="fa fa-circle-o"></i> Vacation PartTime</a></li>
+
 		  </ul>
 		</li>
 		<li class="treeview">
@@ -152,8 +160,10 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
+
 			<li><a href="{{ route('attendsion.store') }}"><i class="fa fa-circle-o"></i> Create</a></li>
 			<li><a href="{{ route('attendsion.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
+
 		  </ul>
 		</li>
 		<li class="treeview">
@@ -165,8 +175,10 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
+
 			<li><a href="{{ route('overtime.create') }}"><i class="fa fa-circle-o"></i> Create</a></li>
 			<li><a href="{{ route('overtime.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
+
 		  </ul>
 		</li>
 		<li class="treeview">
@@ -177,8 +189,10 @@
 			</span>
 		  </a>
 		  <ul class="treeview-menu">
+
 			<li><a href="{{ route('report.create') }}"><i class="fa fa-circle-o"></i> Create</a></li>
 			<li><a href="{{ route('report.index') }}"><i class="fa fa-circle-o"></i> Show</a></li>
+
 		  </ul>
 		</li>
 	  </ul>
@@ -415,6 +429,7 @@
 <script src="{{ asset('/js/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
+
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -423,6 +438,7 @@
 <script src="{{ asset('/js/bootstrap-notify.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/js/demo.js') }}"></script>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 		 @if(Session::has('success'))
@@ -441,5 +457,6 @@
 		@endif
 	});
 </script>
+
 </body>
 </html>

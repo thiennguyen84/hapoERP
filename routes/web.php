@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Auth::routes();
 
 Route::get('home',function(){
@@ -36,3 +37,4 @@ Route::group(array("prefix"=>"employee","middleware"=>"auth"),function(){
 	]]);
 	
 });
+
